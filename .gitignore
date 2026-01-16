@@ -1,3 +1,10 @@
+# data files
+resources/
+
+
+notes.txt
+
+
 # Prerequisites
 *.d
 
