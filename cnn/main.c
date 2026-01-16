@@ -14,8 +14,8 @@
 #define IMG_H 28
 #define CHANNELS 1
 #define NUM_FILTERS 6
-#define N 10000
-#define N_TRAIN 2000 // "max" 60k
+#define N 70000
+#define N_TRAIN 60000 // "max" 60k
 #define N_TEST 10000 // "max" 10k
 #define BATCH_SIZE 512
 #define SEED 42
@@ -192,16 +192,9 @@ void train(
         }
 
         double t11 = now_sec();
-        epoch_time = t11 - t10;
 
 
         printf("Epoch %d avgLoss = %f\n", epoch, sum_loss/N_TRAIN);
-        //printf("Epoch forward_time: %f\n", forward_time);
-        //printf("Epoch backward_time: %f\n", backward_time);
-        //printf("Epoch total_time: %f\n", epoch_time);
-        forward_time = 0.0;
-        backward_time = 0.0;
-        epoch_time = 0.0;
 
 
         if (sum_loss/N_TRAIN < 0.2) {
@@ -211,12 +204,9 @@ void train(
             break;
         }
 
-        if (sum_loss/N_TRAIN < lowest_avg_loss) {
-            lowest_avg_loss = sum_loss/N_TRAIN;
-        }
         sum_loss = 0;
     }
-    printf("Lowest avgLoss = %f\n", lowest_avg_loss);
+
 }
 
 
@@ -303,8 +293,8 @@ int main() {
     // load datasets, preprocessed in python
     // these datasets will not be split or modified
     // instead different views are ensured through indexing
-    const char images_path[85] = "/Users/axelfriberg/skola/master_courses/deep_learning/cnn/resources/mnist_images.bin";
-    const char labels_path[85] = "/Users/axelfriberg/skola/master_courses/deep_learning/cnn/resources/mnist_labels.bin";
+    const char images_path[85] = "../resources/mnist_images.bin";
+    const char labels_path[85] = "../resources/mnist_labels.bin";
     double ***images = load_mnist_images(images_path);
     unsigned char* labels = load_mnist_labels(labels_path);
 
