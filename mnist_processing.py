@@ -26,9 +26,9 @@ X = X.reshape(N, 28 * 28)
 
 # Labels as uint8
 y = y.astype(np.uint8)
-
+print(X[0])
 # Export binary files
-#X.tofile("mnist_images.bin")
-#y.tofile("mnist_labels.bin")
+# X.tofile("mnist_images.bin")
+# y.tofile("mnist_labels.bin")
 
-#print(f"Export complete: {N} images")
+# print(f"Export complete: {N} images")
