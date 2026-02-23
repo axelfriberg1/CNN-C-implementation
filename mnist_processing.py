@@ -23,10 +23,10 @@ X = X.astype(np.float32) / 255.0
 
 # Flatten to (N, 784)
 X = X.reshape(N, 28 * 28)
-
+for i in range(784):
+    print(X[i])
 # Labels as uint8
 y = y.astype(np.uint8)
-print(X[0])
 # Export binary files
 # X.tofile("mnist_images.bin")
 # y.tofile("mnist_labels.bin")

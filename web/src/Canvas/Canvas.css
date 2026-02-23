@@ -1,0 +1,5 @@
+.small-canvas {
+    /* visibility: hidden; */
+    position: absolute;
+    pointer-events: none;
+}
